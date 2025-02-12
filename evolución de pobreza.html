@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Año', 'Población en pobreza (millones)', '% Población en pobreza', 'Población en pobreza extrema (millones)', '% Población en pobreza extrema'],
+                ['2008', 49.5, 44.4, 12.3, 11.0],
+                ['2018', 52.4, 41.9, 9.3, 7.4]
+            ]);
+
+            var options = {
+                title: 'Evolución de Pobreza',
+                chartArea: {width: '50%'},
+                hAxis: {
+                    title: 'Cantidad',
+                    minValue: 0
+                },
+                vAxis: {
+                    title: 'Año'
+                },
+                legend: { position: 'top' },
+                bars: 'horizontal'
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+</head>
+<body>
+    <div id="bar_chart" style="width: 900px; height: 500px"></div>
+</body>
+</html>
